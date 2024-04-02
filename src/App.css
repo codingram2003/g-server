@@ -1,5 +1,54 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-color: #2d323b;
+  color: #61dafb;
+
 }
 
 .App-logo {
@@ -14,8 +63,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +73,159 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.navbar {
+  height: 20vh;
+  background-color: rgb(21, 26, 26);
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scores{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-scores {
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.4em 1.5em;
+  border: mediumspringgreen solid 0.15em;
+  border-radius: 0.25em;
+  color: mediumspringgreen;
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+}
+
+.button-scores p {
+  z-index: 1;
+}
+
+.button-scores:hover {
+  color: #212121;
+}
+
+.button-scores:active {
+  border-color: teal;
+}
+
+.button-scores::after, .button-scores::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: mediumspringgreen;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.button-scores::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.button-scores::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.button-scores:hover:before {
+  transform: translateX(-1em);
+}
+
+.button-scores:hover:after {
+  transform: translateX(1em);
+}
+
+.button-scores:active:before,
+.button-scores:active:after {
+  background: teal;
+}
+
+
+.contact {
+  background: linear-gradient(90.21deg, #002aff -5.91%, #3d2d84 111.58%);
+  padding: 0px 00px 0;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.contact form {
+  margin: auto;
+}
+.contact img {
+  width: 92%;
+}
+.contact h2 {
+	font-size: 40px;
+	font-weight: 700;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.contact form input, .contact form textarea {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  margin: 10px 10px 8px 20px;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+.contact form input:focus, .contact form textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+.contact form button {
+  font-weight: 700;
+  color: #2d0af5;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.contact form button span {
+  z-index: 1;
+  position: relative;
+}
+.contact form button:hover {
+  color: #fff;
+}
+.contact form button::before {
+  content: "";
+  background: #0314ff;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+.contact form button:hover::before {
+  width: 100%;
 }
